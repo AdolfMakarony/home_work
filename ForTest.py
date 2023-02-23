@@ -1,2 +1,2 @@
-a='dksfnsljkgnjdkn'
-print(len(a))
+#это ничто
+
