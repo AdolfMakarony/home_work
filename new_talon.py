@@ -1,3 +1,4 @@
+#check plz
 from random import randint
 
 
