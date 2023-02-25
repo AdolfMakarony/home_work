@@ -10,12 +10,12 @@ over_percent = 15  # повышение стандартной ставки
 result_pay = 0  # результат, куда нужно записать итоговую оплату в неделю
 
 if hours >= standart_hours:
-    standart_hour_pay += standart_hour_pay * over_percent / 100
-#    result_pay = standart_hour_pay * hours
-#else:
-#    result_pay = standart_hour_pay * hours
+    # standart_hour_pay += standart_hour_pay * over_percent / 100
+    result_pay = (standart_hour_pay * hours) + ((hours - standart_hours) * standart_hour_pay * over_percent/100)
+else:
+    result_pay = standart_hour_pay * hours
 
-result_pay = standart_hour_pay * hours
+# result_pay = standart_hour_pay * hours
 #  -----------------------------------
 
 print(f"Работнику необходимо оплатить {result_pay} рублей.")

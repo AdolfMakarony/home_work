@@ -13,14 +13,17 @@ def diff(a, b):
     try:
         a = round(a)
         b = round(b)
-        result = a - b
-        negative_numbers = True
-        if not negative_numbers:
-            if result < 0:
-                result = 0
-        return result
     except Exception:
         print('Its not a number!')
+        exit()
+
+    result = a - b
+    negative_numbers = False
+    if not negative_numbers:
+        if result < 0:
+            result = 0
+    return result
+
 
 
 # --------- Проверки -----------------------

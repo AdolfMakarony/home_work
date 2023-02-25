@@ -22,14 +22,12 @@ for tries in range (1000):
 
     if len(char_to_find) > 1:
         print('Entered >1 value')
-        answer = str(input('Хотите найти ещё один символ? y/n\n'))
-        if answer != 'y':
-            break
+        # char_to_find = input('Введите один символ!')
 
     else:
         print([pos for pos, char in enumerate(str_var) if char == char_to_find])
         print('Количество ', str_var.count(char_to_find))
         print(str_var.replace(char_to_find, ''))
-        answer = str(input('Хотите найти ещё один символ? y/n\n'))
+        answer = input('Хотите найти ещё один символ? y/n\n')
         if answer != 'y':
             break

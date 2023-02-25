@@ -11,7 +11,6 @@ for i in range(1000):
                 for num in num_list:
                     if num % 3 == 0:
                         summ_list += num
-                for num in num_list:
                     if num % 5 == 0:
                         summ_list += num
                 print(summ_list)
