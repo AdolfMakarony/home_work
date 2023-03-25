@@ -22,7 +22,8 @@
 для этого есть аргумент key. Посмотрите файл list_sort в папке info.
 """
 
-days_of_week = ["Пн:", "Вт:", "Ср:", "Чт:", "Пт:", "Сб:", "ВС:"]
+days_of_week = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вc"]
+
 
 def return_day(day):
     return day['day']
@@ -30,30 +31,30 @@ def return_day(day):
 
 def reformat_date(date_list: list):
     date_list.sort(key=return_day)
-    for day_num in date_list:
-        day_num['day'] = days_of_week[day_num['day']]
-        if day_num['from'] == day_num[-1]['from'] and day_num['to'] == day_num[-1]['from']:
-            pass
-    # date_list_to_sort=date_list
-    # for days in date_list:
-    #    if days['from'] == date_list_to_sort['from'] and days['to'] == date_list_to_sort['to']:
-    #        print('ok')
-    # day_list_sl=slice(date_list(0, 7))
-    # print(day_list_sl)
-    # for day_num1 in date_list:
-    #     days = []
-    #     days1=[]
-    #     for day_num2 in date_list:
-    #         # days=[]
-    #         if day_num1['from'] == day_num2['from'] and day_num1['to'] == day_num2['to']:
-    #             days.append(day_num2)
-    #     # days1.append(days)
-    #     days1 = set(days)
-    print(date_list)
 
+    for days in date_list:
+        days['day'] = days_of_week[days['day']]
+        days['start'] = days['day']
+        days['end'] = days['day']
+        # days.pop('day')
+        d = 0
+    for i in range(len(date_list) - 1):
 
+        if date_list[d]['from'] == date_list[d + 1]['from'] and date_list[d]['to'] == date_list[d + 1]['to']:
+            date_list[d + 1]['start'] = date_list[d]['start']
+            date_list.pop(d)
+        else:
+            d += 1
+    res = []
+    for days2 in date_list:
+        if days2['start'] != days2['end']:
+            days2['day'] = days2['start'] + ' - ' + days2['end'] + ': ' + days2['from'] + ' - ' + days2['to']
+        else:
+            days2['day'] = days2['start'] + ': ' + days2['from'] + ' - ' + days2['to']
+        res.append(days2['day'])
 
-    # return date_list
+    return print(*res, sep='\n')
+
 
 print(reformat_date([
     {
@@ -90,7 +91,8 @@ print(reformat_date([
         "day": 5,
         "from": "11:00",
         "to": "23:00"
-    }
+    },
+
 ]))
 
 ## На консоле должно быть
